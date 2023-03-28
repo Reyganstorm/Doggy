@@ -7,17 +7,18 @@
 
 import UIKit
 
-class GallaryCVCell: UICollectionViewCell {
+final class GallaryCVCell: UICollectionViewCell {
     
     static let reuseIdentifier = String(describing: GallaryCVCell.self)
     
     private var breedName = ""
     private var photoName = ""
     
-    // MARK: - Private
+    //MARK: - Private Property
     private let imageView = PhotoImage()
     private let likeButton = LikeButton()
     
+    // MARK: - View life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -30,6 +31,7 @@ class GallaryCVCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - @objc methods
     @objc private func tapOnLikeButton() {
         if FavoriteDogStorage.shared.checkDog(breed: breedName, url: photoName) {
             FavoriteDogStorage.shared.deleteFromBag(breed: breedName, url: photoName)
@@ -39,9 +41,8 @@ class GallaryCVCell: UICollectionViewCell {
             likeButton.setLikeColor(is: true)
         }
     }
-}
-
-extension GallaryCVCell {
+    
+    // MARK: - Public cell method
     func configuration(breed: String, photo: String) {
         imageView.fetch(from: photo)
         photoName = photo
@@ -50,10 +51,8 @@ extension GallaryCVCell {
     }
 }
 
+// MARK: - Private Methods
 private extension GallaryCVCell {
-    
-    // MARK: - Private Methods
-    
     func addViews() {
         addSubview(imageView)
         addSubview(likeButton)

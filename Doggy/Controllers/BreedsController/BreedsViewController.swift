@@ -9,8 +9,10 @@ import UIKit
 
 final class BreedsViewController: UIViewController {
     
+    //MARK: - Private Property
     var dogBreeds = [String]()
 
+    //MARK: - UI elements
     private let breedsTableView: UITableView = {
         let table = UITableView()
         table.rowHeight = 70
@@ -19,6 +21,7 @@ final class BreedsViewController: UIViewController {
         return table
     }()
 
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Breeds"
@@ -30,16 +33,39 @@ final class BreedsViewController: UIViewController {
         fetchBreeds()
     }
 
-    @objc
-    private func favoriteButtonTabpped() {
+    // MARK: - @objc methods
+    @objc private func favoriteButtonTabpped() {
         let vc = FavoriteDogsViewController()
         let detailVC = UINavigationController(rootViewController: vc)
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
         present(detailVC, animated: true)
     }
+}
+
+//MARK: - Private methods
+private extension BreedsViewController {
+    func addViews() {
+        view.addSubview(breedsTableView)
+    }
     
-    private func fetchBreeds() {
+    func layoutViews() {
+        breedsTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            breedsTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            breedsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            breedsTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            breedsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func configure() {
+        breedsTableView.dataSource = self
+        breedsTableView.delegate = self
+    }
+    
+    func fetchBreeds() {
         NetworkManager.shared.getAllBreeds { result in
             switch result {
             case .success(let success):
@@ -62,28 +88,7 @@ final class BreedsViewController: UIViewController {
     }
 }
 
-private extension BreedsViewController {
-    func addViews() {
-        view.addSubview(breedsTableView)
-    }
-    
-    func layoutViews() {
-        breedsTableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            breedsTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            breedsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            breedsTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            breedsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    func configure() {
-        breedsTableView.dataSource = self
-        breedsTableView.delegate = self
-    }
-}
-
+// MARK: - TableView Delegetes
 extension BreedsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dogBreeds.count

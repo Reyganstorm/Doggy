@@ -7,8 +7,9 @@
 
 import UIKit
 
-class LikeButton: UIButton {
+final class LikeButton: UIButton {
 
+    //MARK: - UI Elements
     private let iconView = UIImageView()
     
     override init(frame: CGRect) {
@@ -24,11 +25,13 @@ class LikeButton: UIButton {
     }
     
     
+    // MARK: - Public methods
     func setLikeColor(is like: Bool) {
         iconView.tintColor = like ? .red : .gray
     }
 }
 
+// MARK: - Private methods
 private extension LikeButton {
     
     func addViews() {

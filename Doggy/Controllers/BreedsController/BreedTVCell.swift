@@ -7,10 +7,11 @@
 
 import UIKit
 
-class BreedTVCell: UITableViewCell {
+final class BreedTVCell: UITableViewCell {
     
     static let identifier = "BreedTVCell"
     
+    //MARK: - UI elements
     private let backView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
@@ -35,6 +36,7 @@ class BreedTVCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - View life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -44,10 +46,6 @@ class BreedTVCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -63,8 +61,13 @@ class BreedTVCell: UITableViewCell {
             }
         }
     }
+    
+    func addBreedTitle(_ text: String) {
+        breedTitleLabel.text = text
+    }
 }
 
+//MARK: - Private methods
 private extension BreedTVCell {
     
     func addViews() {
@@ -89,11 +92,5 @@ private extension BreedTVCell {
             breedTitleLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10),
             breedTitleLabel.centerYAnchor.constraint(equalTo: backView.centerYAnchor)
         ])
-    }
-}
-
-extension BreedTVCell {
-    func addBreedTitle(_ text: String) {
-        breedTitleLabel.text = text
     }
 }

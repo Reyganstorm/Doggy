@@ -7,23 +7,28 @@
 
 import UIKit
 
-class FavoriteDogsViewController: UIViewController {
+final class FavoriteDogsViewController: UIViewController {
     
+    //MARK: - Private Property
     private var dogs = [String : [String]]()
     private var breedsOfDogs = [String]()
     
+    //MARK: - UI elements
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(FavoriteTVCell.self, forCellReuseIdentifier: FavoriteTVCell.reuseIdentifier)
         return table
     }()
 
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Favorite Dogs"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
+        let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
+        navigationItem.rightBarButtonItems = [refresh, edit]
         dogs = FavoriteDogStorage.shared.bagDisctionary
         breedsOfDogs = dogs.keys.sorted()
         addViews()
@@ -31,6 +36,7 @@ class FavoriteDogsViewController: UIViewController {
         configure()
     }
     
+    // MARK: - @objc methods
     @objc private func exitTapped() {
         dismiss(animated: true)
     }
@@ -39,8 +45,14 @@ class FavoriteDogsViewController: UIViewController {
         dogs = FavoriteDogStorage.shared.bagDisctionary
         tableView.reloadData()
     }
+    
+    @objc private func editTapped() {
+        
+        tableView.reloadData()
+    }
 }
 
+//MARK: - Private methods
 private extension FavoriteDogsViewController {
     func addViews() {
         view.addSubview(tableView)
@@ -63,6 +75,7 @@ private extension FavoriteDogsViewController {
     }
 }
 
+// MARK: - TableView Delegetes
 extension FavoriteDogsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {

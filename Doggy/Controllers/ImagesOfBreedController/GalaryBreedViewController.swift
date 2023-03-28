@@ -7,11 +7,13 @@
 
 import UIKit
 
-class GalaryBreedViewController: UIViewController {
+final class GalaryBreedViewController: UIViewController {
     
+    //MARK: - Private Property
     private let breedUrl: String
     private var imagesUrl = [String]()
     
+    //MARK: - UI elements
     private let dogCollectionView: UICollectionView = {
         let collection = UICollectionView(
             frame: .zero,
@@ -27,6 +29,7 @@ class GalaryBreedViewController: UIViewController {
         return collection
     }()
     
+    //MARK: - View life cicle
     init(breedUrl: String) {
         self.breedUrl = breedUrl
         super.init(nibName: nil, bundle: nil)
@@ -42,14 +45,25 @@ class GalaryBreedViewController: UIViewController {
         title = breedUrl
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitTapped))
         
-        dogCollectionView.dataSource = self
-        dogCollectionView.delegate = self
+        addViews()
+        layoutViews()
+        configure()
         fetchImagesOfBreed()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    // MARK: - @objc methods
+    @objc private func exitTapped() {
+        dismiss(animated: true)
+    }
+}
+
+//MARK: - Private methods
+private extension GalaryBreedViewController {
+    func addViews() {
         view.addSubview(dogCollectionView)
+    }
+    
+    func layoutViews() {
         dogCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -58,14 +72,14 @@ class GalaryBreedViewController: UIViewController {
             dogCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             dogCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10)
         ])
-        
     }
     
-    @objc private func exitTapped() {
-        dismiss(animated: true)
+    func configure() {
+        dogCollectionView.dataSource = self
+        dogCollectionView.delegate = self
     }
     
-    private func fetchImagesOfBreed() {
+    func fetchImagesOfBreed() {
         NetworkManager.shared.getBreedImages(from: breedUrl) { result in
             switch result {
             case .success(let success):
@@ -79,6 +93,7 @@ class GalaryBreedViewController: UIViewController {
     }
 }
 
+// MARK: - TableView Delegetes
 extension GalaryBreedViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         imagesUrl.count

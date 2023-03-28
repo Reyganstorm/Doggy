@@ -7,15 +7,23 @@
 
 import UIKit
 
-class FavoriteTVCell: UITableViewCell {
+final class FavoriteTVCell: UITableViewCell {
     
     static let reuseIdentifier = String(describing: FavoriteTVCell.self)
     
+    //MARK: - Private property
     private var breedName = ""
     private var photoName = ""
     
+    // MARK: - UI elements
     private let imageDogView = PhotoImage()
     private let likeButton = LikeButton()
+    private let breedTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .light)
+        label.numberOfLines = 0
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,6 +38,7 @@ class FavoriteTVCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - @objc methods
     @objc private func tapOnLikeButton() {
         if FavoriteDogStorage.shared.checkDog(breed: breedName, url: photoName) {
             FavoriteDogStorage.shared.deleteFromBag(breed: breedName, url: photoName)
@@ -40,6 +49,7 @@ class FavoriteTVCell: UITableViewCell {
         }
     }
 
+    //MARK: - Public methods
     func configuration(breed: String, photo: String) {
         imageDogView.fetch(from: photo)
         photoName = photo
@@ -48,6 +58,7 @@ class FavoriteTVCell: UITableViewCell {
     }
 }
 
+//MARK: - Private cell methods
 private extension FavoriteTVCell {
     func addViews() {
         addSubview(imageDogView)

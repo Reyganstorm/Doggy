@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryViewLayout: UICollectionViewLayout {
+final class GalleryViewLayout: UICollectionViewLayout {
     
     // MARK: - Public Properties
     
