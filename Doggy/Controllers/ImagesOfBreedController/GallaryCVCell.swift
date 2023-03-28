@@ -10,6 +10,7 @@ import UIKit
 class GallaryCVCell: UICollectionViewCell {
     
     static let reuseIdentifier = String(describing: GallaryCVCell.self)
+    
     private var breedName = ""
     private var photoName = ""
     
