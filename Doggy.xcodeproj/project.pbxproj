@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		E85A771F29D1C55F009A5156 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A771E29D1C55F009A5156 /* AppDelegate.swift */; };
 		E85A772129D1C55F009A5156 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A772029D1C55F009A5156 /* SceneDelegate.swift */; };
-		E85A772329D1C55F009A5156 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A772229D1C55F009A5156 /* ViewController.swift */; };
 		E85A772829D1C560009A5156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85A772729D1C560009A5156 /* Assets.xcassets */; };
 		E85A772B29D1C560009A5156 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E85A772929D1C560009A5156 /* LaunchScreen.storyboard */; };
-		E8CD7FEC29D1D1800033E5FB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FEB29D1D1800033E5FB /* AppCoordinator.swift */; };
-		E8CD7FEE29D1D1970033E5FB /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FED29D1D1970033E5FB /* MainRouter.swift */; };
+		E8CD7FF229D1D6F00033E5FB /* DogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF129D1D6F00033E5FB /* DogsModel.swift */; };
+		E8CD7FF629D1D87A0033E5FB /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF529D1D87A0033E5FB /* BreedsViewController.swift */; };
+		E8CD7FF829D1DCCE0033E5FB /* BreedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF729D1DCCE0033E5FB /* BreedTVCell.swift */; };
+		E8CD7FFB29D1EF8A0033E5FB /* ImagesOfBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FFA29D1EF8A0033E5FB /* ImagesOfBreedViewController.swift */; };
+		E8CD7FFD29D1F2200033E5FB /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FFC29D1F2200033E5FB /* ServiceAPI.swift */; };
+		E8CD7FFF29D1F2790033E5FB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FFE29D1F2790033E5FB /* NetworkManager.swift */; };
+		E8CD800229D1F5BE0033E5FB /* UIViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD800129D1F5BE0033E5FB /* UIViewController + ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E85A771B29D1C55F009A5156 /* Doggy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doggy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85A771E29D1C55F009A5156 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E85A772029D1C55F009A5156 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E85A772229D1C55F009A5156 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E85A772729D1C560009A5156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E85A772A29D1C560009A5156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E85A772C29D1C560009A5156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8CD7FEB29D1D1800033E5FB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		E8CD7FED29D1D1970033E5FB /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		E8CD7FF129D1D6F00033E5FB /* DogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsModel.swift; sourceTree = "<group>"; };
+		E8CD7FF529D1D87A0033E5FB /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
+		E8CD7FF729D1DCCE0033E5FB /* BreedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTVCell.swift; sourceTree = "<group>"; };
+		E8CD7FFA29D1EF8A0033E5FB /* ImagesOfBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesOfBreedViewController.swift; sourceTree = "<group>"; };
+		E8CD7FFC29D1F2200033E5FB /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		E8CD7FFE29D1F2790033E5FB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E8CD800129D1F5BE0033E5FB /* UIViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,10 @@
 		E85A771D29D1C55F009A5156 /* Doggy */ = {
 			isa = PBXGroup;
 			children = (
+				E8CD800029D1F5950033E5FB /* Extensions */,
+				E8CD7FF329D1D8470033E5FB /* Controllers */,
+				E8CD7FF029D1D6C70033E5FB /* API */,
 				E8CD7FE929D1D0C20033E5FB /* Application */,
-				E85A772229D1C55F009A5156 /* ViewController.swift */,
 				E8CD7FEF29D1D30B0033E5FB /* Resources */,
 			);
 			path = Doggy;
@@ -70,8 +80,6 @@
 			children = (
 				E85A771E29D1C55F009A5156 /* AppDelegate.swift */,
 				E85A772029D1C55F009A5156 /* SceneDelegate.swift */,
-				E8CD7FEB29D1D1800033E5FB /* AppCoordinator.swift */,
-				E8CD7FED29D1D1970033E5FB /* MainRouter.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -84,6 +92,50 @@
 				E85A772C29D1C560009A5156 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E8CD7FF029D1D6C70033E5FB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E8CD7FF129D1D6F00033E5FB /* DogsModel.swift */,
+				E8CD7FFC29D1F2200033E5FB /* ServiceAPI.swift */,
+				E8CD7FFE29D1F2790033E5FB /* NetworkManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E8CD7FF329D1D8470033E5FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8CD7FF929D1EF440033E5FB /* ImagesOfBreedController */,
+				E8CD7FF429D1D85E0033E5FB /* BreedsController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E8CD7FF429D1D85E0033E5FB /* BreedsController */ = {
+			isa = PBXGroup;
+			children = (
+				E8CD7FF529D1D87A0033E5FB /* BreedsViewController.swift */,
+				E8CD7FF729D1DCCE0033E5FB /* BreedTVCell.swift */,
+			);
+			path = BreedsController;
+			sourceTree = "<group>";
+		};
+		E8CD7FF929D1EF440033E5FB /* ImagesOfBreedController */ = {
+			isa = PBXGroup;
+			children = (
+				E8CD7FFA29D1EF8A0033E5FB /* ImagesOfBreedViewController.swift */,
+			);
+			path = ImagesOfBreedController;
+			sourceTree = "<group>";
+		};
+		E8CD800029D1F5950033E5FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8CD800129D1F5BE0033E5FB /* UIViewController + ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,10 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8CD7FEE29D1D1970033E5FB /* MainRouter.swift in Sources */,
-				E8CD7FEC29D1D1800033E5FB /* AppCoordinator.swift in Sources */,
-				E85A772329D1C55F009A5156 /* ViewController.swift in Sources */,
+				E8CD7FFD29D1F2200033E5FB /* ServiceAPI.swift in Sources */,
+				E8CD800229D1F5BE0033E5FB /* UIViewController + ext.swift in Sources */,
+				E8CD7FFB29D1EF8A0033E5FB /* ImagesOfBreedViewController.swift in Sources */,
+				E8CD7FF829D1DCCE0033E5FB /* BreedTVCell.swift in Sources */,
 				E85A771F29D1C55F009A5156 /* AppDelegate.swift in Sources */,
+				E8CD7FFF29D1F2790033E5FB /* NetworkManager.swift in Sources */,
+				E8CD7FF229D1D6F00033E5FB /* DogsModel.swift in Sources */,
+				E8CD7FF629D1D87A0033E5FB /* BreedsViewController.swift in Sources */,
 				E85A772129D1C55F009A5156 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -282,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -306,6 +362,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,9 +370,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = reyganstorm.Doggy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -333,6 +393,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,9 +401,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = reyganstorm.Doggy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
