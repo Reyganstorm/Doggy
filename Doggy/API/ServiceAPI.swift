@@ -13,7 +13,7 @@ enum HTTPMethod: String {
 
 final class ServiceAPI {
     
-    static let host = "https://dog.ceo/api/breeds/"
+    static let host = "https://dog.ceo/api/"
     
     static func fetchData<T: Codable>(
         reqMethod: RequestMethod,
@@ -28,7 +28,7 @@ final class ServiceAPI {
                 completion(.failure(.invalidURL))
                 return
             }
-
+            print(url)
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data else {
                     completion(.failure(.noData))

@@ -41,7 +41,7 @@ final class BreedsViewController: UIViewController {
             case .success(let success):
                 let data = success.message
                 var breedsName = [String]()
-                data?.forEach({ key, value in
+                data.forEach({ key, value in
                     if value.isEmpty {
                         breedsName.append(key.capitalized)
                     }
@@ -95,8 +95,8 @@ extension BreedsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        let article = articles[indexPath.row]
-        let vc = ImagesOfBreedViewController()
+        let breed = dogBreeds[indexPath.row]
+        let vc = GalaryBreedViewController(breedUrl: breed)
 //        vc.delegate = self
         let detailVC = UINavigationController(rootViewController: vc)
         detailVC.modalPresentationStyle = .fullScreen
