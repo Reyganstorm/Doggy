@@ -20,9 +20,9 @@ class GalaryBreedViewController: UIViewController {
         collection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collection.alwaysBounceVertical = true
         collection.register(
-                    GallaryViewCell.self,
-                    forCellWithReuseIdentifier: GallaryViewCell.reuseIdentifier
-                )
+            GallaryCVCell.self,
+            forCellWithReuseIdentifier: GallaryCVCell.reuseIdentifier
+        )
         collection.showsVerticalScrollIndicator = false
         return collection
     }()
@@ -45,12 +45,12 @@ class GalaryBreedViewController: UIViewController {
         dogCollectionView.dataSource = self
         dogCollectionView.delegate = self
         fetchImagesOfBreed()
+        print(FavoriteDogStorage.shared.bagDisctionary)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.addSubview(dogCollectionView)
-//        dogCollectionView.frame = view.bounds
         dogCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -87,10 +87,9 @@ extension GalaryBreedViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GallaryViewCell.reuseIdentifier, for: indexPath) as! GallaryViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GallaryCVCell.reuseIdentifier, for: indexPath) as! GallaryCVCell
         let photo = imagesUrl[indexPath.item]
-        print(photo)
-        cell.configuration(photo: photo)
+        cell.configuration(breed: breedUrl, photo: photo)
         return cell
     }
 }

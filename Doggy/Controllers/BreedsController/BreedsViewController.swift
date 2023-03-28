@@ -23,7 +23,7 @@ final class BreedsViewController: UIViewController {
         super.viewDidLoad()
         title = "Breeds"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.square"), style: .done, target: self, action: #selector(refreshTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.square"), style: .done, target: self, action: #selector(favoriteButtonTabpped))
         addViews()
         layoutViews()
         configure()
@@ -31,8 +31,12 @@ final class BreedsViewController: UIViewController {
     }
 
     @objc
-    private func refreshTapped() {
-        print("Hello")
+    private func favoriteButtonTabpped() {
+        let vc = FavoriteDogsViewController()
+        let detailVC = UINavigationController(rootViewController: vc)
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.modalTransitionStyle = .crossDissolve
+        present(detailVC, animated: true)
     }
     
     private func fetchBreeds() {
@@ -97,10 +101,8 @@ extension BreedsViewController: UITableViewDataSource, UITableViewDelegate {
         
         let breed = dogBreeds[indexPath.row]
         let vc = GalaryBreedViewController(breedUrl: breed)
-//        vc.delegate = self
         let detailVC = UINavigationController(rootViewController: vc)
         detailVC.modalPresentationStyle = .fullScreen
-        detailVC.modalTransitionStyle = .crossDissolve
         present(detailVC, animated: true)
     }
 }
