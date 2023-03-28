@@ -45,7 +45,6 @@ class GalaryBreedViewController: UIViewController {
         dogCollectionView.dataSource = self
         dogCollectionView.delegate = self
         fetchImagesOfBreed()
-        print(FavoriteDogStorage.shared.bagDisctionary)
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +72,6 @@ class GalaryBreedViewController: UIViewController {
                 let data = success.message
                 self.imagesUrl = data
                 self.dogCollectionView.reloadData()
-                print("We are here")
             case .failure(let failure):
                 print(failure.localizedDescription)
             }

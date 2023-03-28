@@ -31,7 +31,6 @@ class GallaryCVCell: UICollectionViewCell {
     }
     
     @objc private func tapOnLikeButton() {
-        print("tabpped")
         if FavoriteDogStorage.shared.checkDog(breed: breedName, url: photoName) {
             FavoriteDogStorage.shared.deleteFromBag(breed: breedName, url: photoName)
             likeButton.setLikeColor(is: false)

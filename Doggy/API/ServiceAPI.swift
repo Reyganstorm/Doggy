@@ -28,7 +28,6 @@ final class ServiceAPI {
                 completion(.failure(.invalidURL))
                 return
             }
-            print(url)
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data else {
                     completion(.failure(.noData))
