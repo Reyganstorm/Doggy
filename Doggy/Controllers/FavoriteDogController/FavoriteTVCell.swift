@@ -18,7 +18,7 @@ final class FavoriteTVCell: UITableViewCell {
     // MARK: - UI elements
     private let imageDogView = PhotoImage()
     private let likeButton = LikeButton()
-    private let breedTitleLabel: UILabel = {
+    private let breedLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .light)
         label.numberOfLines = 0
@@ -52,6 +52,7 @@ final class FavoriteTVCell: UITableViewCell {
     //MARK: - Public methods
     func configuration(breed: String, photo: String) {
         imageDogView.fetch(from: photo)
+        breedLabel.text = breed
         photoName = photo
         breedName = breed
         likeButton.setLikeColor(is: FavoriteDogStorage.shared.checkDog(breed: breed, url: photo))
@@ -62,6 +63,7 @@ final class FavoriteTVCell: UITableViewCell {
 private extension FavoriteTVCell {
     func addViews() {
         addSubview(imageDogView)
+        addSubview(breedLabel)
         contentView.addSubview(likeButton)
     }
     
@@ -70,6 +72,8 @@ private extension FavoriteTVCell {
         imageDogView.contentMode = .scaleAspectFill
         imageDogView.clipsToBounds = true
         imageDogView.layer.cornerRadius = 15
+        
+        breedLabel.translatesAutoresizingMaskIntoConstraints = false
         
         likeButton.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -83,10 +87,16 @@ private extension FavoriteTVCell {
         ])
         
         NSLayoutConstraint.activate([
-            likeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -35),
+            likeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+            likeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             likeButton.widthAnchor.constraint(equalToConstant: 30),
-            likeButton.heightAnchor.constraint(equalToConstant: 30),
-            likeButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+            likeButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            breedLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            breedLabel.leftAnchor.constraint(equalTo: imageDogView.rightAnchor, constant: 15),
+            breedLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
         ])
     }
 }

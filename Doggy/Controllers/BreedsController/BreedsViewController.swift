@@ -26,7 +26,7 @@ final class BreedsViewController: UIViewController {
         super.viewDidLoad()
         title = "Breeds"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star.square"), style: .done, target: self, action: #selector(favoriteButtonTabpped))
+        addBarButtonItem()
         addViews()
         layoutViews()
         configure()
@@ -40,6 +40,16 @@ final class BreedsViewController: UIViewController {
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.modalTransitionStyle = .crossDissolve
         present(detailVC, animated: true)
+    }
+    
+    private func addBarButtonItem() {
+        let favoriteButton = FavoriteButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        favoriteButton.layer.cornerRadius = 8
+        favoriteButton.layer.borderWidth = 1
+        favoriteButton.layer.borderColor = UIColor.white.cgColor
+        favoriteButton.layer.masksToBounds = true
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTabpped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
     }
 }
 

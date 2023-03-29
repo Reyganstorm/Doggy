@@ -12,6 +12,7 @@ final class FavoriteDogStorage {
     private init() {}
     
     private(set) var bagDisctionary = [String : [String]]()
+    private(set) var excludedBreeds = [String]()
     
     func addToBag(breed: String, url: String) {
         if bagDisctionary[breed] != nil {
@@ -32,11 +33,33 @@ final class FavoriteDogStorage {
         
         if bagDisctionary[breed] == [] {
             bagDisctionary[breed] = nil
+            if excludedBreeds.contains(breed) {
+                deleteFromExcludedBreeds(breed: breed)
+            }
         }
     }
     
     func checkDog(breed: String, url: String) -> Bool {
         guard let images = bagDisctionary[breed] else { return false }
         return images.contains(url)
+    }
+    
+    
+    func deleteFromExcludedBreeds(breed: String) {
+        var index = 0
+        for excludedBreed in excludedBreeds {
+            if excludedBreed == breed {
+                excludedBreeds.remove(at: index)
+            }
+            index += 1
+        }
+    }
+    
+    func addToExcludedBreeds(breed: String) {
+        excludedBreeds.append(breed)
+    }
+    
+    func checkExcludedBreeds(breed: String) -> Bool {
+        excludedBreeds.contains(breed)
     }
 }

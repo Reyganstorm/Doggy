@@ -11,6 +11,9 @@
 		E85A772129D1C55F009A5156 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A772029D1C55F009A5156 /* SceneDelegate.swift */; };
 		E85A772829D1C560009A5156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85A772729D1C560009A5156 /* Assets.xcassets */; };
 		E85A772B29D1C560009A5156 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E85A772929D1C560009A5156 /* LaunchScreen.storyboard */; };
+		E8B490E329D3F20700804B95 /* FilterFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B490E229D3F20700804B95 /* FilterFavoriteViewController.swift */; };
+		E8B490E529D3F23C00804B95 /* FilterFavoriteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B490E429D3F23C00804B95 /* FilterFavoriteTVCell.swift */; };
+		E8B490E729D40C6A00804B95 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B490E629D40C6A00804B95 /* FavoriteButton.swift */; };
 		E8CD7FF229D1D6F00033E5FB /* DogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF129D1D6F00033E5FB /* DogsModel.swift */; };
 		E8CD7FF629D1D87A0033E5FB /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF529D1D87A0033E5FB /* BreedsViewController.swift */; };
 		E8CD7FF829D1DCCE0033E5FB /* BreedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD7FF729D1DCCE0033E5FB /* BreedTVCell.swift */; };
@@ -34,6 +37,9 @@
 		E85A772729D1C560009A5156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E85A772A29D1C560009A5156 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E85A772C29D1C560009A5156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B490E229D3F20700804B95 /* FilterFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFavoriteViewController.swift; sourceTree = "<group>"; };
+		E8B490E429D3F23C00804B95 /* FilterFavoriteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFavoriteTVCell.swift; sourceTree = "<group>"; };
+		E8B490E629D40C6A00804B95 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		E8CD7FF129D1D6F00033E5FB /* DogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsModel.swift; sourceTree = "<group>"; };
 		E8CD7FF529D1D87A0033E5FB /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
 		E8CD7FF729D1DCCE0033E5FB /* BreedTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTVCell.swift; sourceTree = "<group>"; };
@@ -90,6 +96,15 @@
 			path = Doggy;
 			sourceTree = "<group>";
 		};
+		E8B490E129D3F1D100804B95 /* FilterFavoriteController */ = {
+			isa = PBXGroup;
+			children = (
+				E8B490E229D3F20700804B95 /* FilterFavoriteViewController.swift */,
+				E8B490E429D3F23C00804B95 /* FilterFavoriteTVCell.swift */,
+			);
+			path = FilterFavoriteController;
+			sourceTree = "<group>";
+		};
 		E8CD7FE929D1D0C20033E5FB /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +137,7 @@
 		E8CD7FF329D1D8470033E5FB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8B490E129D3F1D100804B95 /* FilterFavoriteController */,
 				E8CD801029D2F79B0033E5FB /* FavoriteDogController */,
 				E8CD7FF929D1EF440033E5FB /* ImagesOfBreedController */,
 				E8CD7FF429D1D85E0033E5FB /* BreedsController */,
@@ -154,6 +170,7 @@
 				E8CD800729D2B5F80033E5FB /* PhotoImage.swift */,
 				E8CD800929D2D1200033E5FB /* UIView + ext.swift */,
 				E8CD800B29D2D2610033E5FB /* LikeButton.swift */,
+				E8B490E629D40C6A00804B95 /* FavoriteButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,9 +263,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8CD800A29D2D1200033E5FB /* UIView + ext.swift in Sources */,
+				E8B490E729D40C6A00804B95 /* FavoriteButton.swift in Sources */,
 				E8CD800429D2B45B0033E5FB /* GalaryViewLayout.swift in Sources */,
 				E8CD7FFD29D1F2200033E5FB /* ServiceAPI.swift in Sources */,
 				E8CD800F29D2E5010033E5FB /* FavoriteDogStorage.swift in Sources */,
+				E8B490E329D3F20700804B95 /* FilterFavoriteViewController.swift in Sources */,
+				E8B490E529D3F23C00804B95 /* FilterFavoriteTVCell.swift in Sources */,
 				E8CD7FFB29D1EF8A0033E5FB /* GalaryBreedViewController.swift in Sources */,
 				E8CD800829D2B5F80033E5FB /* PhotoImage.swift in Sources */,
 				E8CD800C29D2D2610033E5FB /* LikeButton.swift in Sources */,

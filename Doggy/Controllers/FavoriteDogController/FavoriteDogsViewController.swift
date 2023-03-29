@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FavoriteDogsDelegate {
+    func update()
+}
+
 final class FavoriteDogsViewController: UIViewController {
     
     //MARK: - Private Property
@@ -27,7 +31,7 @@ final class FavoriteDogsViewController: UIViewController {
         title = "Favorite Dogs"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitTapped))
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
-        let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
+        let edit = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(editTapped))
         navigationItem.rightBarButtonItems = [refresh, edit]
         dogs = FavoriteDogStorage.shared.bagDisctionary
         breedsOfDogs = dogs.keys.sorted()
@@ -42,13 +46,22 @@ final class FavoriteDogsViewController: UIViewController {
     }
 
     @objc private func refreshTapped() {
-        dogs = FavoriteDogStorage.shared.bagDisctionary
+        let allDogs = FavoriteDogStorage.shared.bagDisctionary
+        dogs = allDogs
+        for breed in allDogs.keys {
+            if FavoriteDogStorage.shared.checkExcludedBreeds(breed: breed) {
+                dogs[breed] = nil
+            }
+        }
+        breedsOfDogs = dogs.keys.sorted()
         tableView.reloadData()
     }
     
     @objc private func editTapped() {
-        
-        tableView.reloadData()
+        let filterVC = FilterFavoriteViewController()
+        filterVC.delegate = self
+        let detailVC = UINavigationController(rootViewController: filterVC)
+        present(detailVC, animated: true)
     }
 }
 
@@ -72,6 +85,13 @@ private extension FavoriteDogsViewController {
     func configure() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+}
+
+//MARK: - Favorite Delegate
+extension FavoriteDogsViewController: FavoriteDogsDelegate {
+    func update() {
+        refreshTapped()
     }
 }
 
